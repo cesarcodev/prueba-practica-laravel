@@ -34,7 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/cars', [CarController::class, 'index'])->name('cars');
     Route::get('/car/create', [CarController::class, 'create'])->name('car/create');
     Route::post('/car/save', [CarController::class, 'store'])->name('car/save');
-
+    Route::get('/car/edit/{id}', [CarController::class, 'edit'])->name('car/edit');
+    Route::put('/car/edit/{id}', [CarController::class, 'update'])->name('car/update');
+    Route::get('/car/delete/{id}', [CarController::class, 'destroy'])->name('car/delete');
 });
 
 

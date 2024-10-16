@@ -78,9 +78,9 @@
                                         {{ $carro->mileage }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
+                                    <a href="{{ route('car/edit', ['id'=>$carro->id]) }}"
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
-                                        <a href="#"
+                                        <a href="{{ route('car/delete', ['id'=>$carro->id]) }}"
                                             class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Eliminar</a>
                                     </td>
                                 </tr>
