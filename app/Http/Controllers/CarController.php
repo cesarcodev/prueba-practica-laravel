@@ -24,6 +24,7 @@ class CarController extends Controller
     public function create()
     {
         //
+        return view('cars.create');
     }
 
     /**
@@ -31,7 +32,23 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            'brand' => 'required|max:255',
+            'model' => 'required|max:255',
+            'price' => 'required|numeric',
+            'year' => 'required|numeric',
+            'color' => 'required|max:255',
+            'mileage' => 'required|numeric'
+        ]);
+        $data = Car::create($validation);
+
+        if ($data) {
+            session()->flash('success', 'Carro agregado correctamente');
+            return redirect(route('cars'));
+        } else {
+            session()->flash('error', 'Algún problema sucedio, intento nuevamente');
+            return redirect(route('cars.create'));
+        }
     }
 
     /**

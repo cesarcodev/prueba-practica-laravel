@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
 
     //Rutas para la gestión de automoviles
     Route::get('/cars', [CarController::class, 'index'])->name('cars');
-    
+    Route::get('/car/create', [CarController::class, 'create'])->name('car/create');
+    Route::post('/car/save', [CarController::class, 'store'])->name('car/save');
 
 });
 
