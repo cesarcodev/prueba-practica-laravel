@@ -22,9 +22,9 @@
                     @endif
                      
                     <div class="relative overflow-x-auto">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" id="myTable">
                             <thead
-                                class="text-xs uppercase bg-blue-800 py-4">
+                                class="text-xs uppercase bg-gray-800 py-4 text-white">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         ID
@@ -94,3 +94,15 @@
         </div>
     </div>
 </x-app-layout>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script>
+jQuery(function ($) {
+
+$(document).ready(function () {
+    var table = $("#myTable").DataTable();
+});
+});
+</script>

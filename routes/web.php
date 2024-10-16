@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
@@ -37,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/car/edit/{id}', [CarController::class, 'edit'])->name('car/edit');
     Route::put('/car/edit/{id}', [CarController::class, 'update'])->name('car/update');
     Route::get('/car/delete/{id}', [CarController::class, 'destroy'])->name('car/delete');
+
+    //Ruta para Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
 });
 
 
