@@ -56,7 +56,10 @@
                                 <x-input-error class="mt-2" :messages="$errors->get('mileage')" />
                             </div>
 
-                
+                            <div>
+                                <x-input-label for="image" :value="__('Imagen')" />
+                                <x-text-input id="image" name="image" type="file" class="mt-1 block " :value="old('image')" required  autocomplete="imagen" />
+                            </div>
                            
                             <div class="flex items-center gap-4">
                                 <x-primary-button>Guardar</x-primary-button>

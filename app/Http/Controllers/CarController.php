@@ -42,6 +42,14 @@ class CarController extends Controller
         ]);
         $data = Car::create($validation);
 
+        if($request->file('image')){
+            $file = $request->file('image');
+            $destino = 'images/cars/';
+            $fileName = 'Car-'. $file->getClientOriginalName();
+            $upload = $request->file('image')->move($destino, $fileName);
+        }
+
+
         if ($data) {
             session()->flash('success', 'Carro agregado correctamente');
             return redirect(route('cars'));
